@@ -1,7 +1,12 @@
-import * as React from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import * as React from "react";
+import { StyleSheet, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+
+import Logo from "./components/Logo.js";
+import Texts from "./components/Texts.js";
+import Form from "./components/Form.js";
+import Footer from "./components/Footer.js";
 
 export default function App() {
   return (
@@ -12,18 +17,10 @@ export default function App() {
     >
       <View style={styles.container}>
         <StatusBar style="auto" />
-        <View style={styles.telaInicial}>
-          <View style={styles.logo}>
-            <Image
-              style={styles.logoImagem}
-              source="./assets/images/Pokémon-Logo.png"
-            />
-          </View>
-          <View style={styles.texos}>
-            <Text style={styles.h1}>Hello There!</Text>
-            <Text style={styles.h2}>Welcome to the world of POKEMON!</Text>
-          </View>
-        </View>
+        <Logo />
+        <Texts />
+        <Form />
+        <Footer />
       </View>
     </LinearGradient>
   );
@@ -32,7 +29,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
   },
 });
