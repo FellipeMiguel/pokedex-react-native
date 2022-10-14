@@ -1,34 +1,27 @@
-import { LinearGradient } from "expo-linear-gradient";
-import * as React from "react";
-import { StyleSheet, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import Logo from "./components/Logo.js";
-import Texts from "./components/Texts.js";
-import Form from "./components/Form.js";
-import Footer from "./components/Footer.js";
+import HomeScreen from "./screens/HomeScreen";
+import Pokedex from "./screens/Pokedex";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <LinearGradient
-      // Background Linear Gradient
-      colors={["#56B4FF", "#FFF"]}
-      style={styles.container}
-    >
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <Logo />
-        <Texts />
-        <Form />
-        <Footer />
-      </View>
-    </LinearGradient>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Pokedex"
+          component={Pokedex}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "space-between",
-  },
-});

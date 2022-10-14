@@ -9,7 +9,7 @@ import {
   Pressable,
 } from "react-native";
 
-export default function Texts() {
+export default function Forms({ navigation }) {
   return (
     <View style={styles.form}>
       <SafeAreaView style={styles.formConteudo}>
@@ -22,7 +22,7 @@ export default function Texts() {
       </SafeAreaView>
       <Pressable
         style={styles.button}
-        onPress={() => Alert.alert("Next page...")}
+        onPress={() => navigation.navigate("Pokedex")}
       >
         <Text style={styles.textButton}>Send</Text>
       </Pressable>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { StyleSheet, View, Image } from "react-native";
 
-export default function Texts() {
+export default function Footer() {
   return (
     <View style={styles.footer}>
       <Image
