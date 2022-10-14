@@ -7,40 +7,6 @@ import PokedexTexts from "../components/PokedexTexts.js";
 import PokedexCase from "../components/PokedexCase.js";
 
 export default function Pokedex({ navigation }) {
-  let searchPokemon = 1;
-  let pokemonName;
-  let pokemonNumber;
-
-  let fetchPokemon = async (pokemon) => {
-    let APIresponse = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-    );
-
-    if (APIresponse.status === 200) {
-      let data = await APIresponse.json();
-      return data;
-    }
-
-    let data = await APIresponse.json();
-
-    return data;
-  };
-
-  let renderPokemon = async (pokemon) => {
-    let data = await fetchPokemon(pokemon);
-    if (data) {
-      <Image
-        source={uri(
-          data["sprites"]["versions"]["generation-v"]["black-white"][
-            "animated"
-          ]["front_default"]
-        )}
-      />;
-      pokemonName = data.name;
-      pokemonNumber = data.id;
-      searchPokemon = data.id;
-    }
-  };
   return (
     <LinearGradient
       // Background Linear Gradient
